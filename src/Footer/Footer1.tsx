@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaArrowUp, FaFacebookF, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
 
@@ -8,11 +9,13 @@ export const Footer1 = () => {
         <div className="container mx-auto px-6 grid md:grid-cols-3 gap-10">
           {/* Left Column */}
           <div>
+            <Link href="/">
             <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              GlamGizmo<span className="text-yellow-500">_</span>
+            Kinbo<span className="text-green-600">B</span><span className="text-red-600">D</span>
             </h2>
+            </Link>
             <p className="text-gray-600 mb-4">
-              GlamGizmo is a trendy, modern e-commerce brand that blends fashion
+              KinboBD is a trendy, modern e-commerce brand that blends fashion
               and technology. Perfect for selling stylish gadgets, cool
               clothing, and lifestyle essentials, it speaks to the bold,
               fashion-forward consumer who loves a touch of tech in everyday

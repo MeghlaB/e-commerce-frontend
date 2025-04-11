@@ -5,8 +5,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import Image from "next/image";
+
 
 const images = [
   "/images/image1.jpg",
@@ -17,6 +18,7 @@ const images = [
 
 export const BannerSection = () => {
   return (
+
     <div className="w-full aspect-[16/6] mx-auto">
       <Swiper
         slidesPerView={1}
@@ -29,14 +31,30 @@ export const BannerSection = () => {
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
-              <Image
-                src={src}
-                alt={`Banner ${index}`}
-                fill
-                className="object-cover"
-                priority
-              />
+            <div
+            style={{
+              backgroundImage:
+                `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(${src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundAttachment:"fixed"
+            }}
+            className="min-h-[70vh] py-12 flex items-center gap-6">
+              {/* div-1 */}
+              <div className="w-full lg:w-1/2 p-20">
+                <h1 className="text-xl lg:text-4xl font-bold text-white mb-2">Shop Everything, Easily with KinbiBD</h1>
+                <p className="text-white mb-4">From the latest gadgets and trendy fashion to daily must-haves — KinbiBD brings everything you need, right to your doorstep. Fast delivery. Trusted quality. Hassle-free shopping.</p>
+                <button className="btn bg-yellow-500 text-black">Shop Now</button>
+              </div>
+
+              {/* div-2 */}
+              <div className="w-full lg:w-1/2">
+
+              </div>
+              
+
+             
 
             </div>
           </SwiperSlide>
@@ -46,35 +64,5 @@ export const BannerSection = () => {
   );
 };
 
-    // <section className="bg-gray-50 py-16">
-    //   <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between">
-    //     {/* Left Text Section */}
-    //     <div className="lg:w-1/2 text-center lg:text-left">
-    //       <p className="text-gray-600 uppercase tracking-widest mb-2">New Electric Sander</p>
-    //       <h1 className="text-5xl font-bold text-gray-900 mb-4">
-    //         Sander <span className="text-yellow-600">GWS</span>
-    //       </h1>
-    //       <p className="text-lg text-gray-700 mb-6">
-    //         Lorem Ipsum Dolor Sit Amet.
-    //       </p>
-    //       <button className="bg-yellow-500 hover:bg-yellow-600 text-white text-lg px-6 py-3 rounded-md shadow-md">
-    //         Shopping Now
-    //       </button>
-    //     </div>
-
-    //     {/* Right Image Section */}
-    //     {/* <div className="lg:w-1/2 mt-10 lg:mt-0 relative"> */}
-    //       <Image
-    //         src="/images/image2.jpg" 
-    //         alt="Electric Sander"
-    //         width={800}
-    //         height={500}
-            
-    //       />
-    //     {/* </div> */}
-    //   </div>
-    // </section>
-//   );
-// };
-
+    
 

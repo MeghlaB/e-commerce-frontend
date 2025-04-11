@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 
@@ -8,7 +9,10 @@ export const Nav2 = () => {
     <div>
       <div className="bg-yellow-500 py-4 px-6 flex justify-between items-center">
         <div className="text-2xl font-extrabold text-gray-800 w-full">
-          GlamGizmo
+       <Link href="/">
+       Kinbo<span className="text-green-600">B</span><span className="text-red-600">D</span>
+       </Link>
+
         </div>
 
         <div className="bg-white p-2 flex justify-center w-full ">
@@ -25,6 +29,14 @@ export const Nav2 = () => {
         </div>
 
         <div className="flex justify-end items-center gap-3 w-full">
+          
+
+          <Link href="/login">
+          <button className="btn"><span className="">
+            {" "}
+            <PiSignIn />
+          </span>SignIn</button>
+          </Link>
           <button className="btn">
             <span className="">
               <PiSignIn />
