@@ -26,5 +26,9 @@ export const Nav1 = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 443e0866bdabfd07be3d912f30b28f120b08abeb
   );
 };
