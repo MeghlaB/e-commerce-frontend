@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from 'next/image';
+
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -15,7 +17,8 @@ const AllProducts = () => {
         price: 12000,
         stock: 50,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.5,
         createdAt: "2023-01-01T00:00:00Z",
       },
@@ -27,7 +30,8 @@ const AllProducts = () => {
         price: 35000,
         stock: 30,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.8,
         createdAt: "2023-02-15T00:00:00Z",
       },
@@ -39,7 +43,8 @@ const AllProducts = () => {
         price: 500,
         stock: 100,
         category: "Fashion",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.0,
         createdAt: "2023-03-05T00:00:00Z",
       },
@@ -51,7 +56,8 @@ const AllProducts = () => {
         price: 1500,
         stock: 75,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.2,
         createdAt: "2023-04-10T00:00:00Z",
       },
@@ -63,7 +69,8 @@ const AllProducts = () => {
         price: 12000,
         stock: 50,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.5,
         createdAt: "2023-01-01T00:00:00Z",
       },
@@ -75,7 +82,8 @@ const AllProducts = () => {
         price: 35000,
         stock: 30,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.8,
         createdAt: "2023-02-15T00:00:00Z",
       },
@@ -87,7 +95,8 @@ const AllProducts = () => {
         price: 500,
         stock: 100,
         category: "Fashion",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.0,
         createdAt: "2023-03-05T00:00:00Z",
       },
@@ -99,7 +108,8 @@ const AllProducts = () => {
         price: 1500,
         stock: 75,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.2,
         createdAt: "2023-04-10T00:00:00Z",
       },
@@ -111,7 +121,8 @@ const AllProducts = () => {
         price: 12000,
         stock: 50,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.5,
         createdAt: "2023-01-01T00:00:00Z",
       },
@@ -123,7 +134,8 @@ const AllProducts = () => {
         price: 35000,
         stock: 30,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.8,
         createdAt: "2023-02-15T00:00:00Z",
       },
@@ -135,7 +147,8 @@ const AllProducts = () => {
         price: 500,
         stock: 100,
         category: "Fashion",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.0,
         createdAt: "2023-03-05T00:00:00Z",
       },
@@ -147,7 +160,8 @@ const AllProducts = () => {
         price: 1500,
         stock: 75,
         category: "Electronics",
-        imageUrl: "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
+        imageUrl:
+          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
         rating: 4.2,
         createdAt: "2023-04-10T00:00:00Z",
       },
@@ -165,9 +179,9 @@ const AllProducts = () => {
 
   return (
     <div className="">
-        <h1 className="text-3xl font-bold text-yellow-500 mb-6 border mx-auto max-w-7xl p-5 rounded-xl">
-          📦 All Products
-        </h1>
+      <h1 className="text-3xl font-bold text-yellow-500 mb-6 border mx-auto max-w-7xl p-5 rounded-xl">
+        📦 All Products
+      </h1>
       <div className="max-w-7xl overflow-x-auto max-h-[70vh] overflow-y-auto mx-auto mt-10 p-6 bg-white shadow-md rounded-2xl border">
         <table className="min-w-full table-auto">
           <thead className="">
@@ -186,10 +200,12 @@ const AllProducts = () => {
               <tr key={product._id} className="border-b hover:bg-gray-50">
                 <td className="px-4 py-2">{product.name}</td>
                 <td className="px-4 py-2">
-                  <img
+                  <Image
                     src={product.imageUrl}
                     alt={product.name}
-                    className="w-16 h-16 border border-yellow-500 object-cover"
+                    width={64}
+                    height={64}
+                    className="border border-yellow-500 object-cover"
                   />
                 </td>
                 <td className="px-4 py-2">{product.stock}</td>
