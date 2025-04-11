@@ -15,14 +15,10 @@
     "class-variance-authority": "^0.7.1",
     "client": "file:",
     "clsx": "^2.1.1",
-<<<<<<< HEAD
-=======
-
     "firebase": "^11.6.0",
 
     "embla-carousel-react": "^8.6.0",
 
->>>>>>> b28828f0fcd40c5f4c60830ad4726047a94088d9
     "daisyui": "^5.0.17",
     "embla-carousel-react": "^8.6.0",
     "firebase": "^11.6.0",
