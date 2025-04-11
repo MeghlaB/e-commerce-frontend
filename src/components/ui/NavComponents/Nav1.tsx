@@ -1,3 +1,4 @@
+'use-client'
 import Link from "next/link";
 import React from "react";
 import { FaRegHeart } from "react-icons/fa";
@@ -25,6 +26,9 @@ export const Nav1 = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
     
+>>>>>>> 443e0866bdabfd07be3d912f30b28f120b08abeb
   );
 };
