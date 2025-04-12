@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { BarChart2, Users, Boxes, LayoutDashboard, Home } from "lucide-react";
 
-const Sidebar = () => {
+const AdminSidebar = () => {
   return (
     <aside className="h-screen w-[250px] bg-gray-800 text-white px-4 py-6 hidden md:block fixed top-0 left-0 z-40">
       <div className="text-2xl font-bold mb-10">Dashboard</div>
@@ -48,4 +48,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default AdminSidebar;
