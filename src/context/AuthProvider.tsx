@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           };
 
           const response = await axios.post(
-            'http://localhost:5000/storeUser', // Your external Express server
+            'http://localhost:5000/api/auth/storeUser', // Your external Express server
             payload,
             {
               headers: {
