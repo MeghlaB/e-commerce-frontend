@@ -1,18 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import {  LayoutDashboard,  HomeIcon, ShoppingCart, Package, Heart, User } from "lucide-react";
-
+import {
+  LayoutDashboard,
+  HomeIcon,
+  ShoppingCart,
+  Package,
+  Heart,
+  User,
+  Home,
+} from "lucide-react";
 
 const UserSidebar = () => {
   return (
     <aside className="h-screen w-[250px] bg-gray-800 text-white px-4 py-6 hidden md:block fixed top-0 left-0 z-40">
       <div className="text-2xl font-bold mb-10">Dashboard</div>
-      <div className="pb-4" >
-        {/* <Link href="/" className="flex items-center gap-3 hover:text-gray-300">
+      <div className="pb-4">
+        <Link href="/" className="flex items-center gap-3 hover:text-gray-300">
           <Home size={20} />
           Home
-        </Link> */}
+        </Link>
       </div>
       <nav className="space-y-4">
         <Link
@@ -34,31 +41,30 @@ const UserSidebar = () => {
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <ShoppingCart size={20} />
-         Cart
+          Cart
         </Link>
         <Link
           href="/dashboard/user-order"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <Package size={20} />
-         Order
+          Order
         </Link>
         <Link
           href="/dashboard/user-wish-list"
           className="flex items-center gap-3 hover:text-gray-300"
         >
-          <Heart  size={20} />
-        Wish-List
+          <Heart size={20} />
+          Wish-List
         </Link>
         <Link
           href="/dashboard/user-profile"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <User size={20} />
-       User-Profile
+          User-Profile
         </Link>
       </nav>
-     
     </aside>
   );
 };
