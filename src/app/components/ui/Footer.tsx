@@ -1,5 +1,5 @@
-import { Footer1 } from "@/Footer/Footer1";
-import { Footer2 } from "@/Footer/Footer2";
+import { Footer1 } from "@/app/components/Footer/Footer1";
+import { Footer2 } from "@/app/components/Footer/Footer2";
 import React from "react";
 
 const Footer = () => {
