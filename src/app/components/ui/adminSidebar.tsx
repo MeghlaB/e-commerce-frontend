@@ -15,28 +15,28 @@ const AdminSidebar = () => {
       </div>
       <nav className="space-y-4">
         <Link
-          href="/dashboard"
+          href="/dashboard?role=admin"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <LayoutDashboard size={20} />
           Dashboard
         </Link>
         <Link
-          href="/dashboard/oders"
+          href="/dashboard/order?role=admin"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <Boxes size={20} />
           Oders
         </Link>
         <Link
-          href="/dashboard/analytics"
+          href="/dashboard/analytics?role=admin"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <BarChart2 size={20} />
           Analytics
         </Link>
         <Link
-          href="/dashboard/user-management"
+          href="/dashboard/user-management?role=admin"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <Users size={20} />
