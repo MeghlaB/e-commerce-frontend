@@ -37,6 +37,13 @@ export const Nav3 = () => {
         >
           Contact Us
         </li>
+
+        <li
+          onClick={() => handleNavigation("/dashboard?role=user")}
+          className="cursor-pointer hover:text-blue-600"
+        >
+          Contact Us
+        </li>
       </ul>
 
       <div className="flex items-center gap-2 text-gray-800">

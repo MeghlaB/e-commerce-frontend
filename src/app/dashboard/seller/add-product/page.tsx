@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from "react";
-
+import { useAuth } from "@/context/AuthProvider";
 
 const CreateProduct = () => {
-  const user = {
-    name: "arijit",
-  };
+  const { user, loading } = useAuth();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -32,17 +30,43 @@ const CreateProduct = () => {
       ...formData,
       price: Number(formData.price),
       stock: Number(formData.stock),
-      imageUrl: String(formData.imageUrl),
-      seller: user.name,
+      imageUrl: [formData.imageUrl],
+      seller: user?.uid,
     };
-    console.log(payload);
 
-    //TODO: Api handing
-    //! ...........
-    //! ...........
-    //! ...........
-    //! ...........
+    try {
+      const token = await user?.getIdToken();
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Failed to create product");
+      }
+
+      alert("✅ Product added successfully!");
+      setFormData({
+        name: "",
+        description: "",
+        price: "",
+        stock: "",
+        category: "",
+        imageUrl: "",
+      });
+    } catch (error) {
+      console.error("❌ Error:", error);
+      alert("Failed to add product");
+    }
   };
+
 
   return (
     <div className="max-w-5xl mx-auto mt-10 p-6 bg-white shadow-md rounded-2xl">
@@ -109,11 +133,9 @@ const CreateProduct = () => {
           />
         </div>
         <div>
-          <label className="block font-semibold text-gray-700">
-            Image URL
-          </label>
+          <label className="block font-semibold text-gray-700">Image URL</label>
           <input
-          type="url"
+            type="url"
             name="imageUrl"
             value={formData.imageUrl}
             onChange={handleChange}
