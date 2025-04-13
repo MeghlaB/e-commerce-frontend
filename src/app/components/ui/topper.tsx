@@ -7,21 +7,17 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { LogOut, Settings, ShoppingBag } from "lucide-react";
+import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
 
 export default function Topbar() {
   return (
     <section className=" flex items-center justify-between  border px-6 py-4 lg:px-10">
       {/* Logo */}
-      <div>
-        <div
-         
-          className="flex items-center btn btn-sm gap-2 text-4xl font-bold "
-        >
-          <ShoppingBag className="size-10" />
-          <span className="hidden sm:inline">BurGer</span>
-        </div>
+      <div className="flex items-center gap-2">
+        <Link href="/" className="text-2xl font-bold">
+          KinboBD
+        </Link>
       </div>
       {/* right side */}
       <div>
@@ -36,7 +32,7 @@ export default function Topbar() {
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               {/* admin or user or seller */}
-              <div className="space-y-0.5">
+              <div className="">
                 <h4 className="">Guest Admin</h4>
                 <h6 className="text-green-400">Guest</h6>
               </div>
