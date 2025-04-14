@@ -5,7 +5,8 @@ import {
   LayoutDashboard,
   HomeIcon,
   ShoppingCart,
-  Package,
+  PackagePlus,
+  ListOrdered,
   Heart,
   User,
   Home,
@@ -14,55 +15,48 @@ import {
 const SellerSidebar = () => {
   return (
     <aside className="h-screen w-[250px] bg-gray-800 text-white px-4 py-6 hidden md:block fixed top-0 left-0 z-40">
-      <div className="text-2xl font-bold mb-10">Dashboard</div>
+      <div className="text-2xl font-bold mb-10">Seller</div>
       <div className="pb-4">
-        <Link href="/" className="flex items-center gap-3 hover:text-gray-300">
+        <Link href="/dashboard/seller/home" className="flex items-center gap-3 hover:text-gray-300">
           <Home size={20} />
           Home
         </Link>
       </div>
       <nav className="space-y-4">
         <Link
-          href="/dashboard"
+          href="/dashboard/seller/add-product"
           className="flex items-center gap-3 hover:text-gray-300"
         >
-          <LayoutDashboard size={20} />
-          User-Dashboard
+          <PackagePlus size={20} />
+          Add Product
         </Link>
         <Link
-          href="/dashboard/user-home"
+          href="/dashboard/seller/orders"
           className="flex items-center gap-3 hover:text-gray-300"
         >
-          <HomeIcon size={20} />
-          User-Home
+          <ListOrdered size={20} />
+          Orders
         </Link>
         <Link
-          href="/dashboard/user-cart"
+          href="/dashboard/seller/all-products"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <ShoppingCart size={20} />
-          Cart
+          All Products
         </Link>
         <Link
-          href="/dashboard/user-order"
+          href="/dashboard/seller/update-product"
           className="flex items-center gap-3 hover:text-gray-300"
         >
-          <Package size={20} />
-          Order
-        </Link>
-        <Link
-          href="/dashboard/user-wish-list"
-          className="flex items-center gap-3 hover:text-gray-300"
-        >
-          <Heart size={20} />
-          Wish-List
+          <PackagePlus size={20} />
+          Update Product
         </Link>
         <Link
           href="/dashboard/user-profile"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <User size={20} />
-          User-Profile
+          Seller Profile
         </Link>
       </nav>
     </aside>

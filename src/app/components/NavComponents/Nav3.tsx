@@ -39,10 +39,10 @@ export const Nav3 = () => {
         </li>
 
         <li
-          onClick={() => handleNavigation("/dashboard?role=user")}
+          onClick={() => handleNavigation(`/dashboard/`)}
           className="cursor-pointer hover:text-blue-600"
         >
-          Contact Us
+          Dashboard
         </li>
       </ul>
 

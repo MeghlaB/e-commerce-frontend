@@ -5,6 +5,8 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import axios from 'axios';
 
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL 
+
 interface AuthContextProps {
   user: User | null;
   loading: boolean;
@@ -44,7 +46,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           };
 
           const response = await axios.post(
-            'http://localhost:5000/api/auth/storeUser', // Your external Express server
+              `${apiBaseUrl}/api/auth/storeUser`, // Your external Express server
             payload,
             {
               headers: {

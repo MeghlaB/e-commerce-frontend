@@ -5,6 +5,8 @@ import AdminSidebar from "../components/ui/adminSidebar";
 import UserSidebar from "../components/ui/user-sidebar";
 import Topbar from "../components/ui/topper";
 import SellerSidebar from "../components/ui/sellerSidebar";
+import { useUserRole } from "@/hooks/useUserRole";
+import { useAuth } from "@/context/AuthProvider";
 
 // app/dashboard/layout.tsx
 
@@ -13,8 +15,11 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const searchParams = useSearchParams();
-  const role = searchParams.get("role");
+  const { user } = useAuth();
+  const { role, isLoading, isError } = useUserRole(user?.email);
+  console.log(role, "dashboard");
+
+  // const role = searchParams.get("role");
   const isAdmin = role === "admin";
   const isSeller = role === "seller";
   return (
@@ -23,6 +28,7 @@ export default function DashboardLayout({
         {/* Sidebar */}
         <div className="w-[250px] fixed h-full bg-gray-100">
           {isAdmin ? <AdminSidebar /> : isSeller ? <SellerSidebar/> : <UserSidebar />}
+          {/* <SellerSidebar /> */}
         </div>
 
         {/* Main Content */}

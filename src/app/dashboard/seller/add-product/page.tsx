@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { useAuth } from "@/context/AuthProvider";
+import { useUserRole } from "@/hooks/useUserRole";
 
 const CreateProduct = () => {
   const { user, loading } = useAuth();
+  const { role, userId, isLoading } = useUserRole(user?.email);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -31,9 +33,9 @@ const CreateProduct = () => {
       price: Number(formData.price),
       stock: Number(formData.stock),
       imageUrl: [formData.imageUrl],
-      seller: user?.uid,
+      seller: userId,
     };
-
+    console.log( payload);
     try {
       const token = await user?.getIdToken();
 

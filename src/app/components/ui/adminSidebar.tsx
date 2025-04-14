@@ -6,7 +6,7 @@ import { BarChart2, Users, Boxes, LayoutDashboard, Home } from "lucide-react";
 const AdminSidebar = () => {
   return (
     <aside className="h-screen w-[250px] bg-gray-800 text-white px-4 py-6 hidden md:block fixed top-0 left-0 z-40">
-      <div className="text-2xl font-bold mb-10">Dashboard</div>
+      <div className="text-2xl font-bold mb-10">Admin</div>
       <div className="pb-4" >
         <Link href="/" className="flex items-center gap-3 hover:text-gray-300">
           <Home size={20} />
