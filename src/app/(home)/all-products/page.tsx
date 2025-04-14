@@ -1,11 +1,11 @@
-'use client'
-
-import Image from 'next/image'
-import React from 'react'
-import { useProducts } from '@/hooks/useProducts'
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+import { useProducts } from '@/hooks/useProducts';
 
 const Page = () => {
-  const { data: products, isLoading, error } = useProducts()
+  const { data: products, isLoading, error } = useProducts();
 
   return (
     <div className='container mx-auto'>
@@ -50,36 +50,38 @@ const Page = () => {
       {/* Product Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {products?.map((product) => (
-          <div key={product._id} className="border rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition">
-            <div className="relative">
-              <Image
-                src={product.imageUrl || '/images/default.jpg'}
-                alt={product.name}
-                width={300}
-                height={300}
-                className="mx-auto h-40 object-contain"
-              />
-              {product.category && (
-                <span className="absolute top-2 left-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full">
-                  {product.category}
-                </span>
-              )}
-            </div>
-            <div className="flex justify-center items-center mt-3">
-              <button className="btn bg-yellow-500 text-black">Add to Cart</button>
-            </div>
-            <div className="mt-4">
-              <p className="text-sm text-gray-500">{product.category}</p>
-              <h3 className="font-semibold text-gray-800">{product.name}</h3>
-              <div className="mt-2 text-lg font-bold text-red-600">
-                ₹{product.price.toFixed(2)}
+          <Link key={product._id} href={`/all-products/${product._id}`}>
+            <div className="block border rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition">
+              <div className="relative">
+                <img
+                  src={product.imageUrl[0] || '/images/default.jpg'}
+                  alt={product.name}
+                  width={300}
+                  height={300}
+                  className="mx-auto h-40 object-contain"
+                />
+                {product.category && (
+                  <span className="absolute top-2 left-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full">
+                    {product.category}
+                  </span>
+                )}
+              </div>
+              <div className="flex justify-center items-center mt-3">
+                <button className="btn bg-yellow-500 text-black">Add to Cart</button>
+              </div>
+              <div className="mt-4">
+                <p className="text-sm text-gray-500">{product.category}</p>
+                <h3 className="font-semibold text-gray-800">{product.name}</h3>
+                <div className="mt-2 text-lg font-bold text-red-600">
+                  ₹{product.price.toFixed(2)}
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
