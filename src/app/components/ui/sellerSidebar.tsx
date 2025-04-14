@@ -38,18 +38,11 @@ const SellerSidebar = () => {
           Orders
         </Link>
         <Link
-          href="/dashboard/seller/all-products"
+          href="/dashboard/seller/products"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <ShoppingCart size={20} />
-          All Products
-        </Link>
-        <Link
-          href="/dashboard/seller/update-product"
-          className="flex items-center gap-3 hover:text-gray-300"
-        >
-          <PackagePlus size={20} />
-          Update Product
+          Products
         </Link>
         <Link
           href="/dashboard/user-profile"

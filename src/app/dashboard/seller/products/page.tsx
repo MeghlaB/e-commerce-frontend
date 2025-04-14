@@ -1,180 +1,50 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from 'next/image';
-
+import Image from "next/image";
+import { useProducts } from "@/hooks/useProducts";
+import axios from "axios";
+import { useAuth } from "@/context/AuthProvider";
+import { useUserRole } from "@/hooks/useUserRole";
 
 const AllProducts = () => {
-  const [products, setProducts] = useState([]);
+  const { user, loading } = useAuth();
+  const { role, userId, isLoading } = useUserRole(user?.email);
+  const {
+    data: productsData,
+    isLoading: productsLoading,
+    error,
+    refetch,
+  } = useProducts(); // Add refetch to update the list after deleting a product
+  const [deleting, setDeleting] = useState(false); // For loading state during deletion
 
-  useEffect(() => {
-    const mockProducts = [
-      {
-        _id: "1",
-        seller: "jon",
-        name: "Smartphone",
-        description: "A high-quality smartphone with advanced features.",
-        price: 12000,
-        stock: 50,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.5,
-        createdAt: "2023-01-01T00:00:00Z",
-      },
-      {
-        _id: "2",
-        seller: "jon",
-        name: "Laptop",
-        description: "A powerful laptop for gaming and productivity.",
-        price: 35000,
-        stock: 30,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.8,
-        createdAt: "2023-02-15T00:00:00Z",
-      },
-      {
-        _id: "3",
-        seller: "jon",
-        name: "T-shirt",
-        description: "Comfortable cotton T-shirt in various sizes.",
-        price: 500,
-        stock: 100,
-        category: "Fashion",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.0,
-        createdAt: "2023-03-05T00:00:00Z",
-      },
-      {
-        _id: "4",
-        seller: "jon",
-        name: "Bluetooth Speaker",
-        description: "Portable Bluetooth speaker with great sound quality.",
-        price: 1500,
-        stock: 75,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.2,
-        createdAt: "2023-04-10T00:00:00Z",
-      },
-      {
-        _id: "5",
-        seller: "jon",
-        name: "Smartphone",
-        description: "A high-quality smartphone with advanced features.",
-        price: 12000,
-        stock: 50,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.5,
-        createdAt: "2023-01-01T00:00:00Z",
-      },
-      {
-        _id: "6",
-        seller: "jon",
-        name: "Laptop",
-        description: "A powerful laptop for gaming and productivity.",
-        price: 35000,
-        stock: 30,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.8,
-        createdAt: "2023-02-15T00:00:00Z",
-      },
-      {
-        _id: "7",
-        seller: "jon",
-        name: "T-shirt",
-        description: "Comfortable cotton T-shirt in various sizes.",
-        price: 500,
-        stock: 100,
-        category: "Fashion",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.0,
-        createdAt: "2023-03-05T00:00:00Z",
-      },
-      {
-        _id: "8",
-        seller: "jon",
-        name: "Bluetooth Speaker",
-        description: "Portable Bluetooth speaker with great sound quality.",
-        price: 1500,
-        stock: 75,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.2,
-        createdAt: "2023-04-10T00:00:00Z",
-      },
-      {
-        _id: "9",
-        seller: "jon",
-        name: "Smartphone",
-        description: "A high-quality smartphone with advanced features.",
-        price: 12000,
-        stock: 50,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.5,
-        createdAt: "2023-01-01T00:00:00Z",
-      },
-      {
-        _id: "10",
-        seller: "jon",
-        name: "Laptop",
-        description: "A powerful laptop for gaming and productivity.",
-        price: 35000,
-        stock: 30,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.8,
-        createdAt: "2023-02-15T00:00:00Z",
-      },
-      {
-        _id: "11",
-        seller: "jon",
-        name: "T-shirt",
-        description: "Comfortable cotton T-shirt in various sizes.",
-        price: 500,
-        stock: 100,
-        category: "Fashion",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.0,
-        createdAt: "2023-03-05T00:00:00Z",
-      },
-      {
-        _id: "12",
-        seller: "jon",
-        name: "Bluetooth Speaker",
-        description: "Portable Bluetooth speaker with great sound quality.",
-        price: 1500,
-        stock: 75,
-        category: "Electronics",
-        imageUrl:
-          "https://th.bing.com/th/id/OIP.cAobzB0mBSlBjpBXbNRdSwHaE7?rs=1&pid=ImgDetMain",
-        rating: 4.2,
-        createdAt: "2023-04-10T00:00:00Z",
-      },
-    ];
-    setProducts(mockProducts);
-  }, []);
+  if (isLoading && productsLoading) return <div>Loading...</div>;
+  const products =
+    productsData?.filter((product) => product.seller === userId) || [];
+  // Replace 'sellerId' with the actual seller ID you want to filter by
 
-  const handleDelete = (id) => {
+  if (error) return <div>Error loading products</div>;
+
+  // Handle product deletion
+  const handleDelete = async (id: string) => {
     const confirmDelete = confirm(
       "Are you sure you want to delete this product?"
     );
     if (!confirmDelete) return;
-    setProducts(products.filter((product) => product._id !== id));
+
+    try {
+      setDeleting(true); // Set deleting to true to show loading state
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/products/${id}`
+      );
+      alert("Product deleted successfully!");
+      refetch(); // Refetch the products after deletion to update the list
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      alert("Error deleting product");
+    } finally {
+      setDeleting(false); // Reset deleting state
+    }
   };
 
   return (
@@ -223,8 +93,9 @@ const AllProducts = () => {
                   <button
                     onClick={() => handleDelete(product._id)}
                     className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+                    disabled={deleting} // Disable button when deleting
                   >
-                    Delete
+                    {deleting ? "Deleting..." : "Delete"}
                   </button>
                 </td>
               </tr>

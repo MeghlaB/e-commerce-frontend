@@ -1,4 +1,3 @@
-// hooks/useProducts.ts
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -19,14 +18,17 @@ export interface Product {
 
 const fetchProducts = async (): Promise<Product[]> => {
   const res = await axios.get(`${apiBaseUrl}/api/products`);
-  console.log(res)
+  console.log(res);
   return res.data;
 };
 
 export const useProducts = () => {
-  return useQuery({
+  // Use the `useQuery` hook to fetch products
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
+
+  return { data, isLoading, error, refetch };
 };
