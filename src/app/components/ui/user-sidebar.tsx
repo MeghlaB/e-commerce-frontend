@@ -30,35 +30,35 @@ const UserSidebar = () => {
           User-Dashboard
         </Link>
         <Link
-          href="/dashboard/user-home"
+          href="/dashboard/user/user-home"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <HomeIcon size={20} />
           User-Home
         </Link>
         <Link
-          href="/dashboard/user-cart"
+          href="/dashboard/user/user-cart"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <ShoppingCart size={20} />
           Cart
         </Link>
         <Link
-          href="/dashboard/user-order"
+          href="/dashboard/user/user-order"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <Package size={20} />
           Order
         </Link>
         <Link
-          href="/dashboard/user-wish-list"
+          href="/dashboard/user/user-wish-list"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <Heart size={20} />
           Wish-List
         </Link>
         <Link
-          href="/dashboard/user-profile"
+          href="/dashboard/user/user-profile"
           className="flex items-center gap-3 hover:text-gray-300"
         >
           <User size={20} />

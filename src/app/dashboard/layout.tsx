@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+
 import AdminSidebar from "../components/ui/adminSidebar";
 import UserSidebar from "../components/ui/user-sidebar";
 import Topbar from "../components/ui/topper";
@@ -16,7 +16,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const { user } = useAuth();
-  const { role, isLoading, isError } = useUserRole(user?.email);
+  const { role } = useUserRole(user?.email);
   console.log(role, "dashboard");
 
 

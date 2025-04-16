@@ -39,10 +39,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           const token = await user.getIdToken();
 
           const payload = {
-            uid: user.uid,
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
+            uid: user?.uid,
+            displayName: user?.displayName,
+            email: user?.email,
+            photoURL: user?.photoURL,
           };
 
           const response = await axios.post(

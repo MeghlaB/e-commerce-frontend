@@ -9,8 +9,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthProvider";
+import { useUserRole } from "@/hooks/useUserRole";
 
 export default function Topbar() {
+  const {user}=useAuth()
+  console.log(user?.displayName)
+  const { role } = useUserRole(user?.email);
   return (
     <section className=" flex items-center justify-between  border px-6 py-4 lg:px-10">
       {/* Logo */}
@@ -27,14 +32,14 @@ export default function Topbar() {
               <Avatar>
                 <AvatarImage
                   src="https://github.com/shadcn.png"
-                  alt="@shadcn"
+                  alt={user?.displayName||"user"}
                 />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               {/* admin or user or seller */}
               <div className="">
-                <h4 className="">Guest Admin</h4>
-                <h6 className="text-green-400">Guest</h6>
+                <h4 className="text-[20px] font-bold"> {user?.displayName?.split(" ")[0] || "Guest"}</h4>
+                <h6 className="text-green-400">{`${role?'null' :"user"}`}</h6>
               </div>
             </div>
           </PopoverTrigger>
@@ -47,18 +52,18 @@ export default function Topbar() {
                       src="https://github.com/shadcn.png"
                       alt="@shadcn"
                     />
-                    <AvatarFallback>CN</AvatarFallback>
+                    {/* <AvatarFallback>CN</AvatarFallback> */}
                   </Avatar>
                   {/* admin or user or seller */}
                   <div>
-                    <h4 className="font-medium">Guest Admin</h4>
+                    <h4 className="font-medium">Guest {`${role?'null':'user'}`}</h4>
                     <h6 className="text-green-400 font-semibold">Guest</h6>
                   </div>
                 </div>
               </div>
               <div>
                 <h1 className="pb-2.5 text-[16px] font-semibold">
-                  Welcome back admin 🎉
+                  Welcome back {`${role?'null':'user'}`}
                 </h1>
                 <div className="space-y-2.5">
                   {/* settings */}
