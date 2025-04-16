@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthProvider";
-import ReactQueryProvider from '@/lib/QueryClientProvider'; 
+import ReactQueryProvider from "@/lib/QueryClientProvider";
+// import { CartProvider } from "@/hooks/useCart";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,15 +24,17 @@ export type TChildren = {
 };
 export default function RootLayout({ children }: TChildren) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AuthProvider>
-          <ReactQueryProvider>
-          {children}
-          </ReactQueryProvider>
+        <ReactQueryProvider>
+          <AuthProvider>
+            {/* <CartProvider>{children}</CartProvider>
+             */}
+             {children}
           </AuthProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

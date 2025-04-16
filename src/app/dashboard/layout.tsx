@@ -19,7 +19,7 @@ export default function DashboardLayout({
   const { role, isLoading, isError } = useUserRole(user?.email);
   console.log(role, "dashboard");
 
-  // const role = searchParams.get("role");
+
   const isAdmin = role === "admin";
   const isSeller = role === "seller";
   return (
