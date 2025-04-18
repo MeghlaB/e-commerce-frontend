@@ -18,7 +18,6 @@ export const useCreateOrder = () => {
       const { data } = await axios.post(
         `${apiBaseUrl}/api/orders`,
         payload,
-        { withCredentials: true }
       );
       return data;
     },
