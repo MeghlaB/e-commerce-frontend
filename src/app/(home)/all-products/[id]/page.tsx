@@ -2,18 +2,24 @@
 
 import { useParams } from 'next/navigation';
 import { useProduct } from '@/hooks/useProduct';
-import Image from 'next/image';
+import { useCart } from '@/hooks/useCart';
 import React from 'react';
 
 const ProductDetailsPage = () => {
-  // Extract the product ID from the URL params.
   const params = useParams();
   const id = params?.id as string;
 
-  // Use a custom hook to fetch product details
   const { data: product, isLoading, error } = useProduct(id);
+  const { addToCart } = useCart();
 
-  // Handle loading and error states.
+  const handleAddToCart = () => {
+    if (!product) return;
+
+ 
+
+    addToCart({ ...product, quantity: 1 });
+  };
+
   if (isLoading) return <p className="text-center mt-10">Loading product details...</p>;
   if (error) return <p className="text-center mt-10">Error loading product details.</p>;
   if (!product) return <p className="text-center mt-10">Product not found.</p>;
@@ -39,12 +45,13 @@ const ProductDetailsPage = () => {
           <p className="text-gray-500 mt-2">Stock: {product.stock}</p>
           <p className="text-gray-500 mt-2">Category: {product.category}</p>
           <p className="text-gray-500 mt-2">Rating: {product.rating}</p>
-          {/* You can add more information such as reviews or an "Add to Cart" button here */}
+
           <button
-            className="mt-6 bg-yellow-500 text-black px-6 py-2 rounded-md hover:bg-yellow-600 transition"
-            onClick={() => alert('Add to Cart functionality here')}
+            className="mt-6 bg-yellow-500 text-black px-6 py-2 rounded-md hover:bg-yellow-600 transition disabled:opacity-50"
+            onClick={handleAddToCart}
+            disabled={product.stock === 0}
           >
-            Add to Cart
+            {product?.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
           </button>
         </div>
       </div>
