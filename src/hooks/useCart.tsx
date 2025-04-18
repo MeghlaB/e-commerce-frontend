@@ -59,8 +59,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         _id: product._id,
         name: product.name,
         price: product.price,
-        imageUrl: product.imageUrl,
-        quantity: product.quantity, // ✅ ADD THIS LINE
+        imageUrl: Array.isArray(product.imageUrl) ? product.imageUrl[0] : product.imageUrl, // ✅ FIX
+        quantity: product.quantity,
       };
   
       const res = await axios.post(`${apiBaseUrl}/api/cart/${userId}`, {
