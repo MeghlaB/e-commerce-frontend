@@ -53,24 +53,27 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = async (product: Product) => {
     if (!userId) return;
-
+  
     try {
       const productToSend = {
         _id: product._id,
         name: product.name,
         price: product.price,
         imageUrl: product.imageUrl,
+        quantity: product.quantity, // ✅ ADD THIS LINE
       };
-
+  
       const res = await axios.post(`${apiBaseUrl}/api/cart/${userId}`, {
         userId,
         product: productToSend,
       });
+  
       setCart(res.data.products);
     } catch (err) {
       console.error("Error adding to cart:", err);
     }
   };
+  
 
   const updateQuantity = async (productId: string, quantity: number) => {
     if (!userId) return;
